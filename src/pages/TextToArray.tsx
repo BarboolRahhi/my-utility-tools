@@ -1,4 +1,4 @@
-import { ChangeEvent, Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
 import { convertTextToArray } from "../utils/convertTextToArray";
 import Highlight from "react-highlight";
@@ -9,7 +9,7 @@ export default function TextToArray() {
     { language: string; code: string; checked?: boolean }[]
   >([]);
 
-  const { register, getValues, handleSubmit, reset } = useForm({});
+  const { register, handleSubmit, reset } = useForm({});
   const onSubmit = (formData: any) => {
     console.log(formData);
 
