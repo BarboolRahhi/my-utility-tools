@@ -1,0 +1,135 @@
+import { SubmitHandler, useForm } from "react-hook-form";
+import MainContainer from "../components/MainContainer";
+import { useEffect, useState } from "react";
+import { calculateMonthlySIPValue } from "../utils/calculateMonthlySIPValue";
+import { calculateLumpsumValue } from "../utils/calculateLumpsumValue";
+import TextField from "../components/TextField";
+import TimePeriodSvg from "../components/svg-icon/TimePeriodSvg";
+import PercentageSvg from "../components/svg-icon/PercentageSvg";
+import RupeeSvg from "../components/svg-icon/RupeeSvg";
+import Radio from "../components/Radio";
+import { SipCalculatorDetails } from "../components/SipCalculatorDetails";
+
+type Inputs = {
+  sipType: string;
+  amount: number;
+  interestRate: number;
+  years: number;
+};
+
+export type SipDetails = {
+  investedAmount: number;
+  estimatedReturns: number;
+  totalReturns: number;
+};
+
+const SipCalculator = () => {
+  const { register, handleSubmit, getValues, reset } = useForm<Inputs>({
+    defaultValues: {
+      sipType: "sip",
+      amount: 5000,
+      interestRate: 8,
+      years: 5,
+    },
+  });
+
+  const [sipResult, setSipResult] = useState<SipDetails>({
+    investedAmount: 0,
+    estimatedReturns: 0,
+    totalReturns: 0,
+  });
+
+  useEffect(() => {
+    onSubmit(getValues());
+  }, []);
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const { sipType, amount, interestRate, years } = data;
+
+    const investedAmount = amount * years * 12;
+    if (sipType === "sip") {
+      const value = calculateMonthlySIPValue(amount, interestRate, years);
+      setSipResult({
+        investedAmount: investedAmount,
+        estimatedReturns: value - investedAmount,
+        totalReturns: value,
+      });
+    } else {
+      const value = calculateLumpsumValue(amount, interestRate, years);
+      setSipResult({
+        investedAmount: amount,
+        estimatedReturns: value - amount,
+        totalReturns: value,
+      });
+    }
+  };
+
+  return (
+    <MainContainer>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-1 flex-col lg:flex-row"
+      >
+        <div className="flex flex-col gap-3 flex-1">
+          <div className="flex gap-2">
+            <Radio
+              label="Sip"
+              {...register("sipType")}
+              value="sip"
+              defaultChecked
+            />
+            <Radio label="Lumpsum" {...register("sipType")} value="lumpsum" />
+          </div>
+          <TextField
+            {...register("amount")}
+            label="Monthly Investment"
+            type="number"
+            placeholder="In Rupees"
+            min={1}
+            max={5000000}
+            icon={<RupeeSvg />}
+          />
+          <TextField
+            {...register("interestRate")}
+            label="Expected Return Rate (p.a)"
+            type="number"
+            placeholder="In percentage"
+            min={1}
+            max={30}
+            step=".01"
+            icon={<PercentageSvg />}
+          />
+          <TextField
+            {...register("years")}
+            label="Time Period (years)"
+            placeholder="in years"
+            type="number"
+            min={1}
+            max={30}
+            icon={<TimePeriodSvg />}
+          />
+        </div>
+        <div className="divider lg:divider-horizontal"></div>
+        <div className="flex flex-col flex-1">
+          <SipCalculatorDetails details={sipResult} />
+          <div className="flex gap-4 mt-auto">
+            <button type="submit" className="btn btn-primary flex-1">
+              Calculate
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline btn-primary flex-1"
+              onClick={() => {
+                reset();
+              }}
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </form>
+    </MainContainer>
+  );
+};
+
+export default SipCalculator;

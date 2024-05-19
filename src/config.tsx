@@ -3,7 +3,7 @@ import AddQuoteToText from "./pages/AddQuoteToText";
 import JsonFormatter from "./pages/JsonFormatter";
 import TextCompare from "./pages/TextCompare";
 import TextToArray from "./pages/TextToArray";
-import SipCalculator from "./components/SipCalculator";
+import SipCalculator from "./pages/SipCalculator";
 
 type SectionItem = {
   name: string;
@@ -103,7 +103,7 @@ export const sideMenuConfig: SideMenuConfig = {
       sectionName: "Calculator",
       sectionItems: [
         {
-          name: "Sip",
+          name: "Sip/Lumsum",
           link: "/sip-calculator",
           component: <SipCalculator />,
         },
