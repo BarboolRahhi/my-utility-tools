@@ -1,61 +1,64 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import MainContainer from "../components/MainContainer";
 import { useEffect, useState } from "react";
-import { calculateMonthlySIPValue } from "../utils/calculateMonthlySIPValue";
-import { calculateLumpsumValue } from "../utils/calculateLumpsumValue";
 import TextField from "../components/TextField";
 import TimePeriodSvg from "../components/svg-icon/TimePeriodSvg";
 import PercentageSvg from "../components/svg-icon/PercentageSvg";
 import RupeeSvg from "../components/svg-icon/RupeeSvg";
-import Radio from "../components/Radio";
-import ProgressChart from "../components/ProgressChart";
 import { KeyValueList } from "../components/KeyValueList";
+import ProgressChart from "../components/ProgressChart";
+import { calculateLoanEMI } from "../utils/calculateLoanEmi";
+
 type Inputs = {
-  sipType: string;
   amount: number;
   interestRate: number;
   years: number;
 };
 
-export type SipDetails = {
-  investedAmount: number;
-  estimatedReturns: number;
-  totalReturns: number;
+export type EmiDetails = {
+  monthlyEmi: number;
+  principalAmount: number;
+  totalInterest: number;
+  totalAmount: number;
 };
 
-const SipCalculator = () => {
+const EmiCalculator = () => {
   const { register, handleSubmit, getValues, reset } = useForm<Inputs>({
     defaultValues: {
-      sipType: "sip",
-      amount: 5000,
-      interestRate: 8,
+      amount: 100000,
+      interestRate: 9,
       years: 5,
     },
   });
 
-  const [sipResult, setSipResult] = useState<SipDetails>({
-    investedAmount: 0,
-    estimatedReturns: 0,
-    totalReturns: 0,
+  const [emiResult, setEmiResult] = useState<EmiDetails>({
+    monthlyEmi: 0,
+    principalAmount: 0,
+    totalInterest: 0,
+    totalAmount: 0,
   });
 
   const progressValue =
-    sipResult.totalReturns !== 0
-      ? (sipResult.estimatedReturns / sipResult.totalReturns) * 100
+    emiResult.principalAmount !== 0
+      ? (emiResult.totalInterest / emiResult.principalAmount) * 100
       : 0;
 
   const keyValueData = [
     {
-      key: "Invested Amount",
-      value: "₹" + sipResult.investedAmount.toLocaleString(),
+      key: "Monthly EMI",
+      value: "₹" + emiResult.monthlyEmi.toLocaleString(),
     },
     {
-      key: "Estimated Returns",
-      value: "₹" + sipResult.estimatedReturns.toLocaleString(),
+      key: "Principal Amount",
+      value: "₹" + emiResult.principalAmount.toLocaleString(),
     },
     {
-      key: "Total Returns",
-      value: "₹" + sipResult.totalReturns.toLocaleString(),
+      key: "Total Interest",
+      value: "₹" + emiResult.totalInterest.toLocaleString(),
+    },
+    {
+      key: "Total Amount",
+      value: "₹" + emiResult.totalAmount.toLocaleString(),
     },
   ];
 
@@ -64,24 +67,15 @@ const SipCalculator = () => {
   }, []);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const { sipType, amount, interestRate, years } = data;
-
-    const investedAmount = amount * years * 12;
-    if (sipType === "sip") {
-      const value = calculateMonthlySIPValue(amount, interestRate, years);
-      setSipResult({
-        investedAmount: investedAmount,
-        estimatedReturns: value - investedAmount,
-        totalReturns: value,
-      });
-    } else {
-      const value = calculateLumpsumValue(amount, interestRate, years);
-      setSipResult({
-        investedAmount: amount,
-        estimatedReturns: value - amount,
-        totalReturns: value,
-      });
-    }
+    const { amount, interestRate, years } = data;
+    const emi = calculateLoanEMI(amount, interestRate, years);
+    const totalAmount = emi * years * 12;
+    setEmiResult({
+      monthlyEmi: Math.round(emi),
+      principalAmount: amount,
+      totalInterest: Math.round(totalAmount - amount),
+      totalAmount: Math.round(totalAmount),
+    });
   };
 
   return (
@@ -91,27 +85,18 @@ const SipCalculator = () => {
         className="flex flex-1 flex-col lg:flex-row"
       >
         <div className="flex flex-col gap-4 flex-1">
-          <div className="flex gap-2">
-            <Radio
-              label="Sip"
-              {...register("sipType")}
-              value="sip"
-              defaultChecked
-            />
-            <Radio label="Lumpsum" {...register("sipType")} value="lumpsum" />
-          </div>
           <TextField
             {...register("amount")}
-            label="Monthly Investment"
+            label="Loan amount"
             type="number"
             placeholder="In Rupees"
             min={1}
-            max={5000000}
+            max={20000000}
             icon={<RupeeSvg />}
           />
           <TextField
             {...register("interestRate")}
-            label="Expected Return Rate (p.a)"
+            label="Rate of interest (p.a)"
             type="number"
             placeholder="In percentage"
             min={1}
@@ -121,11 +106,11 @@ const SipCalculator = () => {
           />
           <TextField
             {...register("years")}
-            label="Time Period (years)"
+            label="Loan tenure (years)"
             placeholder="in years"
             type="number"
             min={1}
-            max={30}
+            max={40}
             icon={<TimePeriodSvg />}
           />
         </div>
@@ -134,12 +119,12 @@ const SipCalculator = () => {
           <ProgressChart
             label="Total value of your investment:"
             bottomLabel={{
-              progressLabel: "Est. Returns",
-              unProgresslabel: "Invested Amount",
+              progressLabel: "Interest Amount",
+              unProgresslabel: "Principal Amount",
             }}
             progressValue={progressValue}
           />
-          <KeyValueList className="mt-2" data={keyValueData} />
+          <KeyValueList className="my-2" data={keyValueData} />
           <div className="flex gap-4 mt-auto">
             <button type="submit" className="btn btn-primary flex-1">
               Calculate
@@ -160,4 +145,4 @@ const SipCalculator = () => {
   );
 };
 
-export default SipCalculator;
+export default EmiCalculator;

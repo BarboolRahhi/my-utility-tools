@@ -48,7 +48,7 @@ export default function Header() {
           </div>
         </a>
       </div>
-      <label className="input input-bordered input-sm w-full max-w-sm flex items-center gap-2">
+      <label className="input input-bordered input-sm lg:flex items-center gap-2 hidden">
         <input type="text" className="grow" placeholder="Search..." />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ export default function Header() {
         </svg>
       </label>
 
-      <label className="flex cursor-pointer gap-2 ml-4">
+      <label className="flex cursor-pointer gap-2 ml-auto mr-4 lg:mr-0 lg:ml-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

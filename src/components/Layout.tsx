@@ -8,7 +8,7 @@ export default function Layout() {
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         <Header />
-        <div className="px-8 py-6 overflow-y-auto">
+        <div className="p-6 overflow-y-auto">
           <Outlet />
         </div>
       </div>

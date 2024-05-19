@@ -4,6 +4,7 @@ import JsonFormatter from "./pages/JsonFormatter";
 import TextCompare from "./pages/TextCompare";
 import TextToArray from "./pages/TextToArray";
 import SipCalculator from "./pages/SipCalculator";
+import EmiCalculator from "./pages/EmiCalculator";
 
 type SectionItem = {
   name: string;
@@ -106,6 +107,11 @@ export const sideMenuConfig: SideMenuConfig = {
           name: "Sip/Lumsum",
           link: "/sip-calculator",
           component: <SipCalculator />,
+        },
+        {
+          name: "Loan EMI",
+          link: "/emi-calculator",
+          component: <EmiCalculator />,
         },
       ],
       section_svg_icon: (
