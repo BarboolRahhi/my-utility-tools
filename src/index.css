@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.logo {
+  background: linear-gradient(to top, #491eff, #8dcfff);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}

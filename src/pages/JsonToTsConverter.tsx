@@ -53,7 +53,10 @@ const JsonToTsConverter: React.FC = () => {
 
   return (
     <MainContainer className="">
-      <form className="flex flex-1" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="flex flex-1 flex-col lg:flex-row"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <TextArea
           {...register("jsonInput", {
             onBlur: (e) => {
