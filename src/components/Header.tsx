@@ -82,8 +82,16 @@ export default function Header() {
         <input
           type="checkbox"
           value="light"
-          className="toggle theme-controller"
+          className="toggle"
+          onChange={(e) => {
+            if (e.target.checked) {
+              document.documentElement.dataset.theme = "dark";
+            } else {
+              document.documentElement.dataset.theme = "light";
+            }
+          }}
         />
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

@@ -3,7 +3,7 @@ import MainContainer from "../components/MainContainer";
 import { useEffect, useState } from "react";
 import { calculateMonthlySIPValue } from "../utils/calculateMonthlySIPValue";
 import { calculateLumpsumValue } from "../utils/calculateLumpsumValue";
-import TextField from "../components/TextField";
+import Input from "../components/Input";
 import TimePeriodSvg from "../components/svg-icon/TimePeriodSvg";
 import PercentageSvg from "../components/svg-icon/PercentageSvg";
 import RupeeSvg from "../components/svg-icon/RupeeSvg";
@@ -100,7 +100,7 @@ const SipCalculator = () => {
             />
             <Radio label="Lumpsum" {...register("sipType")} value="lumpsum" />
           </div>
-          <TextField
+          <Input
             {...register("amount")}
             label="Monthly Investment"
             type="number"
@@ -109,7 +109,7 @@ const SipCalculator = () => {
             max={5000000}
             icon={<RupeeSvg />}
           />
-          <TextField
+          <Input
             {...register("interestRate")}
             label="Expected Return Rate (p.a)"
             type="number"
@@ -119,7 +119,7 @@ const SipCalculator = () => {
             step=".01"
             icon={<PercentageSvg />}
           />
-          <TextField
+          <Input
             {...register("years")}
             label="Time Period (years)"
             placeholder="in years"

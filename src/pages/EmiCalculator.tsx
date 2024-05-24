@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import MainContainer from "../components/MainContainer";
 import { useEffect, useState } from "react";
-import TextField from "../components/TextField";
+import Input from "../components/Input";
 import TimePeriodSvg from "../components/svg-icon/TimePeriodSvg";
 import PercentageSvg from "../components/svg-icon/PercentageSvg";
 import RupeeSvg from "../components/svg-icon/RupeeSvg";
@@ -85,7 +85,7 @@ const EmiCalculator = () => {
         className="flex flex-1 flex-col lg:flex-row"
       >
         <div className="flex flex-col gap-4 flex-1">
-          <TextField
+          <Input
             {...register("amount")}
             label="Loan amount"
             type="number"
@@ -94,7 +94,7 @@ const EmiCalculator = () => {
             max={20000000}
             icon={<RupeeSvg />}
           />
-          <TextField
+          <Input
             {...register("interestRate")}
             label="Rate of interest (p.a)"
             type="number"
@@ -104,7 +104,7 @@ const EmiCalculator = () => {
             step=".01"
             icon={<PercentageSvg />}
           />
-          <TextField
+          <Input
             {...register("years")}
             label="Loan tenure (years)"
             placeholder="in years"

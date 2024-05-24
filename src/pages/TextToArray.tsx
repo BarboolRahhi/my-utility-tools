@@ -1,8 +1,9 @@
 import { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
 import { convertTextToArray } from "../utils/convertTextToArray";
-import Highlight from "react-highlight";
 import MainContainer from "../components/MainContainer";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default function TextToArray() {
   const [tabData, setTabData] = useState<
@@ -144,7 +145,14 @@ export default function TextToArray() {
                 role="tabpanel"
                 className="tab-content bg-base-100 border-base-300 rounded-box p-6 overflow-hidden"
               >
-                <Highlight className="java">{data.code}</Highlight>
+                <SyntaxHighlighter
+                  showLineNumbers
+                  wrapLines
+                  language="javascript"
+                  style={dracula}
+                >
+                  {data.code}
+                </SyntaxHighlighter>
               </div>
             </Fragment>
           ))}

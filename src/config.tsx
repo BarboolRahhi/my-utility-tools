@@ -5,6 +5,7 @@ import TextCompare from "./pages/TextCompare";
 import TextToArray from "./pages/TextToArray";
 import SipCalculator from "./pages/SipCalculator";
 import EmiCalculator from "./pages/EmiCalculator";
+import JsonToTsConverter from "./pages/JsonToTsConverter";
 
 type SectionItem = {
   name: string;
@@ -36,6 +37,11 @@ export const sideMenuConfig: SideMenuConfig = {
           name: "Text to Array",
           link: "/text-to-array",
           component: <TextToArray />,
+        },
+        {
+          name: "Json to Ts",
+          link: "/json-to-ts",
+          component: <JsonToTsConverter />,
         },
       ],
       section_svg_icon: (
