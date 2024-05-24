@@ -8,6 +8,7 @@ import RadioGroup from "../components/RadioGroup";
 import TextArea from "../components/TextArea";
 import Button from "../components/Button";
 import CodeViewer from "../components/CodeViewer";
+import { formatJSON } from "../utils/formatJson";
 
 type Inputs = {
   jsonInput: string;
@@ -29,7 +30,7 @@ const initialFromState: Inputs = {
 const JsonToTsConverter: React.FC = () => {
   const [code, setCode] = useState("");
 
-  const { register, handleSubmit, watch, reset } = useForm<Inputs>({
+  const { register, handleSubmit, watch, reset, setValue } = useForm<Inputs>({
     defaultValues: initialFromState,
   });
   const language = watch("language");
@@ -54,7 +55,14 @@ const JsonToTsConverter: React.FC = () => {
     <MainContainer className="">
       <form className="flex flex-1" onSubmit={handleSubmit(onSubmit)}>
         <TextArea
-          {...register("jsonInput")}
+          {...register("jsonInput", {
+            onBlur: (e) => {
+              const json = formatJSON(e.target.value, 4);
+              if (!json.startsWith("Error")) {
+                setValue("jsonInput", json);
+              }
+            },
+          })}
           className="flex-1"
           placeholder="Paste your text here"
           rows={15}
@@ -126,7 +134,7 @@ const JsonToTsConverter: React.FC = () => {
           </div>
         </div>
       </form>
-      {code && <CodeViewer code={code} fileName="types" />}
+      {code && <CodeViewer code={code} language={language} fileName="types" />}
     </MainContainer>
   );
 };

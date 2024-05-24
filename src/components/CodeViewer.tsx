@@ -14,12 +14,14 @@ type CodeViewerProps = {
   code: string;
   fileName?: string;
   className?: string;
+  language?: string;
 };
 
 const CodeViewer = ({
   code,
   className,
   fileName = "default",
+  language,
 }: CodeViewerProps) => {
   const handleDownload = () => {
     downloadTextFile(`${fileName}.txt`, code);
@@ -48,7 +50,7 @@ const CodeViewer = ({
         className="w-full rounded-lg"
         showLineNumbers
         wrapLines
-        language="javascript"
+        language={language}
         style={isDark ? atomOneDark : atomOneLight}
       >
         {code}
