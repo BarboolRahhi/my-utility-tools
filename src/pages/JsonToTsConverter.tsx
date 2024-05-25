@@ -121,7 +121,7 @@ const JsonToTsConverter: React.FC = () => {
             </RadioGroup>
           )}
 
-          <div className="flex gap-4 mt-auto">
+          <div className="flex gap-4 mt-4 lg:mt-auto">
             <Button type="submit" variant="primary" className="flex-1">
               Convert
             </Button>

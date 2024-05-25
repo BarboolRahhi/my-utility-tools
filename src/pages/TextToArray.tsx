@@ -2,8 +2,11 @@ import { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
 import { convertTextToArray } from "../utils/convertTextToArray";
 import MainContainer from "../components/MainContainer";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import RadioGroup from "../components/RadioGroup";
+import Radio from "../components/Radio";
+import TextArea from "../components/TextArea";
+import Button from "../components/Button";
+import CodeViewer from "../components/CodeViewer";
 
 export default function TextToArray() {
   const [tabData, setTabData] = useState<
@@ -28,103 +31,57 @@ export default function TextToArray() {
   const clearForm = () => {
     setTabData([]);
     reset();
-    console.log("hello");
   };
 
   return (
     <MainContainer>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex gap-6 flex-col lg:flex-row">
-          <label className="form-control flex-1">
-            <div className="label">
-              <span className="label-text">Input Text</span>
-            </div>
-            <textarea
-              {...register("inputText")}
-              className="textarea textarea-bordered h-80"
-              placeholder="Paste your text here"
-            ></textarea>
-          </label>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col lg:flex-row"
+      >
+        <TextArea
+          {...register("inputText")}
+          placeholder="Paste your text here"
+          label="Input Text"
+          className="flex-1"
+          rows={10}
+        />
 
-          <div className="flex flex-col gap-2 flex-1">
-            <label className="label-text">Quotes</label>
-            <div className="flex gap-4">
-              <div className="form-control">
-                <label className="label cursor-pointer gap-3">
-                  <span className="label-text">Double</span>
-                  <input
-                    {...register("quotes")}
-                    type="radio"
-                    className="radio checked:bg-blue-500"
-                    value="double"
-                    defaultChecked
-                  />
-                </label>
-              </div>
-              <div className="form-control">
-                <label className="label cursor-pointer gap-3">
-                  <span className="label-text">Single</span>
-                  <input
-                    {...register("quotes")}
-                    type="radio"
-                    className="radio checked:bg-blue-500"
-                    value="single"
-                  />
-                </label>
-              </div>
-            </div>
-            <label className="label-text">Remove quotes</label>
-            <div className="flex gap-4">
-              <div className="form-control">
-                <label className="label cursor-pointer gap-3">
-                  <span className="label-text">Yes</span>
-                  <input
-                    {...register("removeQuote")}
-                    type="radio"
-                    className="radio checked:bg-blue-500"
-                    value="yes"
-                  />
-                </label>
-              </div>
-              <div className="form-control">
-                <label className="label cursor-pointer gap-3">
-                  <span className="label-text">No</span>
-                  <input
-                    {...register("removeQuote")}
-                    type="radio"
-                    className="radio checked:bg-blue-500"
-                    value="no"
-                    defaultChecked
-                  />
-                </label>
-              </div>
-            </div>
-            <label className="form-control w-full ">
-              <div className="label">
-                <span className="label-text">Split by</span>
-              </div>
-              <select
-                {...register("splitBy")}
-                className="select select-bordered"
-              >
-                <option value={`\n`}>New Line</option>
-                <option>:</option>
-                <option>;</option>
-                <option>,</option>
-              </select>
-            </label>
-            <div className="flex gap-4 mt-auto">
-              <button type="submit" className="btn btn-primary flex-1">
-                Convert
-              </button>
-              <button
-                type="button"
-                className="btn btn-outline btn-primary flex-1"
-                onClick={() => clearForm()}
-              >
-                Clear
-              </button>
-            </div>
+        <div className="divider lg:divider-horizontal"></div>
+        <div className="flex flex-col gap-2 flex-1">
+          <RadioGroup label="Quotes">
+            <Radio
+              {...register("quotes")}
+              label="Double"
+              value="double"
+              defaultChecked
+            />
+            <Radio {...register("quotes")} label="Single" value="single" />
+          </RadioGroup>
+
+          <RadioGroup label="Remove quotes">
+            <Radio {...register("removeQuote")} label="Yes" value="yes" />
+            <Radio
+              {...register("removeQuote")}
+              label="No"
+              value="no"
+              defaultChecked
+            />
+          </RadioGroup>
+
+          <div className="flex gap-4 mt-4 lg:mt-auto">
+            <Button type="submit" variant="primary" className="flex-1">
+              Convert
+            </Button>
+            <Button
+              type="button"
+              variant="primary"
+              style="outline"
+              className="flex-1"
+              onClick={clearForm}
+            >
+              Clear
+            </Button>
           </div>
         </div>
       </form>
@@ -145,14 +102,11 @@ export default function TextToArray() {
                 role="tabpanel"
                 className="tab-content bg-base-100 border-base-300 rounded-box p-6 overflow-hidden"
               >
-                <SyntaxHighlighter
-                  showLineNumbers
-                  wrapLines
-                  language="javascript"
-                  style={dracula}
-                >
-                  {data.code}
-                </SyntaxHighlighter>
+                <CodeViewer
+                  code={data.code}
+                  language={data.language}
+                  fileName="code"
+                />
               </div>
             </Fragment>
           ))}

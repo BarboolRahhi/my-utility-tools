@@ -11,13 +11,13 @@ type RadioTypes = {
 const radioVariants = cva(["radio"], {
   variants: {
     variant: {
-      primary: ["radio-primary"],
-      secondary: ["radio-secondary"],
-      accent: ["radio-accent"],
-      success: ["radio-success"],
-      warning: ["radio-warning"],
-      info: ["radio-info"],
-      error: ["radio-error"],
+      primary: ["checked:radio-primary"],
+      secondary: ["checked:radio-secondary"],
+      accent: ["checked:radio-accent"],
+      success: ["checked:radio-success"],
+      warning: ["checked:radio-warning"],
+      info: ["checked:radio-info"],
+      error: ["checked:radio-error"],
     },
     size: {
       lg: ["radio-lg"],
@@ -25,6 +25,9 @@ const radioVariants = cva(["radio"], {
       sm: ["radio-sm"],
       xs: ["radio-xs"],
     },
+  },
+  defaultVariants: {
+    variant: "primary",
   },
 });
 

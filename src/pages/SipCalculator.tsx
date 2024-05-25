@@ -97,8 +97,14 @@ const SipCalculator = () => {
               {...register("sipType")}
               value="sip"
               defaultChecked
+              variant="primary"
             />
-            <Radio label="Lumpsum" {...register("sipType")} value="lumpsum" />
+            <Radio
+              label="Lumpsum"
+              {...register("sipType")}
+              value="lumpsum"
+              variant="primary"
+            />
           </div>
           <Input
             {...register("amount")}
@@ -117,6 +123,7 @@ const SipCalculator = () => {
             min={1}
             max={30}
             step=".01"
+            required
             icon={<PercentageSvg />}
           />
           <Input
@@ -126,6 +133,7 @@ const SipCalculator = () => {
             type="number"
             min={1}
             max={30}
+            required
             icon={<TimePeriodSvg />}
           />
         </div>

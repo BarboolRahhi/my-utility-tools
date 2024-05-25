@@ -92,6 +92,7 @@ const EmiCalculator = () => {
             placeholder="In Rupees"
             min={1}
             max={20000000}
+            required
             icon={<RupeeSvg />}
           />
           <Input
@@ -102,6 +103,7 @@ const EmiCalculator = () => {
             min={1}
             max={30}
             step=".01"
+            required
             icon={<PercentageSvg />}
           />
           <Input
@@ -111,6 +113,7 @@ const EmiCalculator = () => {
             type="number"
             min={1}
             max={40}
+            required
             icon={<TimePeriodSvg />}
           />
         </div>

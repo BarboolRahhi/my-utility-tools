@@ -2,6 +2,9 @@ import { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
 import { quoteText } from "../utils/quoteText";
 import MainContainer from "../components/MainContainer";
+import TextArea from "../components/TextArea";
+import Input from "../components/Input";
+import Checkbox from "../components/Checkbox";
 
 export default function AddQuoteToText() {
   const { register, getValues, setValue } = useForm();
@@ -20,60 +23,47 @@ export default function AddQuoteToText() {
   return (
     <MainContainer>
       <div className="flex gap-6 flex-col lg:flex-row">
-        <label className="form-control w-full">
-          <div className="label">
-            <span className="label-text">Input Text</span>
-          </div>
-          <textarea
-            {...register("inputText", {
-              onChange: handleOnChange,
-            })}
-            className="textarea textarea-bordered h-80"
-            placeholder="Paste your text here"
-          ></textarea>
-        </label>
-        <label className="form-control w-full">
-          <div className="label">
-            <span className="label-text">Quoted Text</span>
-          </div>
-          <textarea
-            {...register("outputText")}
-            readOnly
-            className="textarea textarea-bordered h-80"
-            placeholder="Get quoted output from here"
-          ></textarea>
-        </label>
+        <TextArea
+          {...register("inputText", {
+            onChange: handleOnChange,
+          })}
+          label="Input Text"
+          rows={10}
+          className="flex-1"
+          placeholder="Paste your text here"
+        />
+
+        <TextArea
+          {...register("outputText")}
+          readOnly
+          label="Quoted Text"
+          rows={10}
+          className="flex-1"
+          placeholder="Get quoted output from here"
+        />
       </div>
-      <div className="flex gap-5 flex-col lg:flex-row">
-        <label className="form-control w-full max-w-xs">
-          <div className="label">
-            <span className="label-text">Left Quote</span>
-          </div>
-          <input
-            {...register("leftQuote", {
-              onChange: handleOnChange,
-            })}
-            type="text"
-            placeholder="Type here"
-            defaultValue={`"`}
-            className="input input-bordered w-full max-w-xs"
-          />
-        </label>
-        <label className="form-control w-full max-w-xs">
-          <div className="label">
-            <span className="label-text">Right Quote</span>
-          </div>
-          <input
-            {...register("rightQuote", {
-              onChange: handleOnChange,
-            })}
-            type="text"
-            placeholder="Type here"
-            defaultValue={`"`}
-            className="input input-bordered w-full max-w-xs"
-          />
-        </label>
-        <div className="form-control">
+      <div className="flex gap-5 flex-col items-center lg:flex-row">
+        <Input
+          {...register("leftQuote", {
+            onChange: handleOnChange,
+          })}
+          type="text"
+          placeholder="Type here"
+          defaultValue={`"`}
+          label="Left Quote"
+          className="w-full"
+        />
+        <Input
+          {...register("rightQuote", {
+            onChange: handleOnChange,
+          })}
+          type="text"
+          placeholder="Type here"
+          defaultValue={`"`}
+          label="Right Quote"
+          className="w-full"
+        />
+        {/* <div className="form-control w-full">
           <div className="label">
             <span className="label-text">Line-by-Line Quoting</span>
           </div>
@@ -85,7 +75,16 @@ export default function AddQuoteToText() {
             defaultChecked
             className="checkbox"
           />
-        </div>
+        </div> */}
+        <Checkbox
+          {...register("lineByLine", {
+            onChange: handleOnChange,
+          })}
+          defaultChecked
+          label="Line-by-Line Quoting"
+          className="w-full lg:mt-6"
+          labelPosition="right"
+        />
       </div>
     </MainContainer>
   );
