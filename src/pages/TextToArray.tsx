@@ -68,6 +68,17 @@ export default function TextToArray() {
               defaultChecked
             />
           </RadioGroup>
+          <label className="form-control w-full ">
+            <div className="label">
+              <span className="label-text">Split by</span>
+            </div>
+            <select {...register("splitBy")} className="select select-bordered">
+              <option value={`\n`}>New Line</option>
+              <option>:</option>
+              <option>;</option>
+              <option>,</option>
+            </select>
+          </label>
 
           <div className="flex gap-4 mt-4 lg:mt-auto">
             <Button type="submit" variant="primary" className="flex-1">
