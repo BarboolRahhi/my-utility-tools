@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+# MyUtilityTools.in
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **MyUtilityTools.in** – your go-to destination for a wide range of utility tools to simplify your day-to-day tasks. Our platform offers a variety of calculators and converters designed to help you with financial planning, code generation, text manipulation, and data formatting. Explore our features and make your work easier and more efficient.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Financial Calculators
 
-## Expanding the ESLint configuration
+1. **EMI Calculator**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+   - Calculate your Equated Monthly Installment (EMI) for loans.
 
-- Configure the top-level `parserOptions` property like this:
+2. **SIP Calculator**
+   - Plan your Systematic Investment Plan (SIP) with ease.
+3. **Lump Sum Calculator**
+   - Calculate the future value of a one-time investment.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Code Converters
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. **JSON to Java Converter**
+
+   - Convert your JSON data into Java classes.
+   - Supports nested structures and arrays for comprehensive code generation.
+   - Support Types - Record, Getter and Setter, Lombok
+
+2. **JSON to TypeScript Converter**
+
+   - Transform your JSON data into JavaScript objects.
+   - Support Types - interface and type
+
+3. **JSON to Kotlin Converter**
+   - Generate Kotlin data classes from JSON data.
+   - Support Types - data classes only
+
+### Text Utilities
+
+1. **Add Quote to Text**
+
+   - Easily add quotes around your text.
+   - Useful for preparing strings for coding or data entry.
+
+2. **Text Compare**
+
+   - Compare two pieces of text to find differences.
+   - Ideal for code reviews, proofreading, and document comparison.
+
+3. **JSON Formatter**
+   - Format and beautify your JSON data.
+
+## How to Use
+
+1. Navigate to the [MyUtilityTools.in](http://myutilitytools.in) homepage.
+
+---
+
+Thank you for choosing **MyUtilityTools.in**! We hope our tools help you simplify your tasks and enhance your productivity.

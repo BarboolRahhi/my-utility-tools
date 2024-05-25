@@ -6,6 +6,7 @@ import TextToArray from "./pages/TextToArray";
 import SipCalculator from "./pages/SipCalculator";
 import EmiCalculator from "./pages/EmiCalculator";
 import JsonToTsConverter from "./pages/JsonToTsConverter";
+import HomePage from "./pages/HomePage";
 
 type SectionItem = {
   name: string;
@@ -110,7 +111,7 @@ export const sideMenuConfig: SideMenuConfig = {
       sectionName: "Calculator",
       sectionItems: [
         {
-          name: "Sip/Lumsum",
+          name: "Sip/Lumpsum",
           link: "/sip-calculator",
           component: <SipCalculator />,
         },
@@ -130,8 +131,13 @@ export const sideMenuConfig: SideMenuConfig = {
   ],
 };
 
-export const sideBarRoutes: RouteObject[] = sideMenuConfig.sideSections
+const routes: RouteObject[] = sideMenuConfig.sideSections
   .flatMap((section) => section.sectionItems)
   .map((item) => {
     return { path: item.link, element: item.component };
   });
+
+export const sideBarRoutes: RouteObject[] = [
+  { path: "/", element: <HomePage /> },
+  ...routes,
+];
