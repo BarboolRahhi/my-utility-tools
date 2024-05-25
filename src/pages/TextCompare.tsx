@@ -1,6 +1,8 @@
 import { useState } from "react";
 import MainContainer from "../components/MainContainer";
 import { cn } from "../utils/cn";
+import Button from "../components/Button";
+import TextArea from "../components/TextArea";
 // import "./TextCompare.css"; // Import CSS file for styling
 
 function TextCompare() {
@@ -37,36 +39,28 @@ function TextCompare() {
   };
 
   return (
-    <MainContainer>
-      <div className="flex gap-4">
-        <label className="form-control w-full">
-          <div className="label">
-            <span className="label-text">Text 1</span>
-          </div>
-          <textarea
-            onChange={(e) => setText1(e.target.value)}
-            className="textarea textarea-bordered"
-            rows={10}
-            placeholder="Paste your text here"
-          ></textarea>
-        </label>
-        <label className="form-control w-full">
-          <div className="label">
-            <span className="label-text">Text 2</span>
-          </div>
-          <textarea
-            onChange={(e) => setText2(e.target.value)}
-            rows={10}
-            className="textarea textarea-bordered"
-            placeholder="Paste your text here"
-          ></textarea>
-        </label>
+    <MainContainer className="">
+      <div className="flex gap-4 flex-col lg:flex-row">
+        <TextArea
+          label="Text 1"
+          onChange={(e) => setText1(e.target.value)}
+          className="flex-1"
+          rows={10}
+          placeholder="Paste your text here"
+        />
+        <TextArea
+          label="Text 2"
+          onChange={(e) => setText2(e.target.value)}
+          rows={10}
+          className="flex-1"
+          placeholder="Paste your text here"
+        />
       </div>
-      <button className="btn btn-error self-center" onClick={compareTexts}>
+      <Button className="self-center" onClick={compareTexts} variant="primary">
         Compare
-      </button>
-      <div className="flex gap-4">
-        <div className="highlight flex-1 p-4 rounded-lg border">
+      </Button>
+      <div className="flex gap-4 overflow-x-auto">
+        <div className="highlight lg:flex-1 p-4 rounded-lg border min-w-[300px]">
           {text1.split("\n").map((word, index) => (
             <div
               key={index}
@@ -76,7 +70,7 @@ function TextCompare() {
             </div>
           ))}
         </div>
-        <div className="highlight flex-1 p-4 rounded-lg border">
+        <div className="highlight lg:flex-1 p-4 rounded-lg border min-w-[300px]">
           {text2.split("\n").map((word, index) => (
             <div
               key={index}

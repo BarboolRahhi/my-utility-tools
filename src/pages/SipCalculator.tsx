@@ -10,6 +10,7 @@ import RupeeSvg from "../components/svg-icon/RupeeSvg";
 import Radio from "../components/Radio";
 import ProgressChart from "../components/ProgressChart";
 import { KeyValueList } from "../components/KeyValueList";
+import Button from "../components/Button";
 type Inputs = {
   sipType: string;
   amount: number;
@@ -138,7 +139,7 @@ const SipCalculator = () => {
           />
         </div>
         <div className="divider lg:divider-horizontal"></div>
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 gap-4">
           <ProgressChart
             label="Total value of your investment:"
             bottomLabel={{
@@ -147,20 +148,22 @@ const SipCalculator = () => {
             }}
             progressValue={progressValue}
           />
-          <KeyValueList className="mt-2" data={keyValueData} />
-          <div className="flex gap-4 mt-auto">
-            <button type="submit" className="btn btn-primary flex-1">
+          <KeyValueList data={keyValueData} />
+          <div className="flex gap-4 mt-3 lg:mt-auto">
+            <Button type="submit" className="flex-1" variant="primary">
               Calculate
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
-              className="btn btn-outline btn-primary flex-1"
+              variant="primary"
+              style="outline"
+              className=" flex-1"
               onClick={() => {
                 reset();
               }}
             >
               Clear
-            </button>
+            </Button>
           </div>
         </div>
       </form>

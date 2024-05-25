@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Reddit Mono", monospace;
+}
+
 .logo {
   background: linear-gradient(to top, #491eff, #8dcfff);
   -webkit-text-fill-color: transparent;
