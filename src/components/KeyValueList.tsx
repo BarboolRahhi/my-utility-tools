@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { cn } from "../utils/cn";
 
 type CalculatorDetailsProps = {
-  data: { key: string; value: string }[];
+  data: { key: string; value: string | number }[];
   className?: string;
 };
 

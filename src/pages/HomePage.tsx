@@ -27,8 +27,8 @@ const features = [
         description: "Convert your JSON data into Java classes.",
       },
       {
-        name: "JSON to JavaScript Converter",
-        description: "Transform your JSON data into JavaScript objects.",
+        name: "JSON to TypeScript Converter",
+        description: "Transform your JSON data into TypeScript objects.",
       },
       {
         name: "JSON to Kotlin Converter",
@@ -78,7 +78,7 @@ const HomePage = () => {
           <h2 className="text-3xl font-semibold  mb-6">Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.map(({ title, items }) => (
-              <div className="card border" key={title}>
+              <div className="card border hover:bg-base-200" key={title}>
                 <div className="card-body">
                   <h3 className="card-title text-xl">{title}</h3>
                   <ul className="list-disc list-inside mt-2">

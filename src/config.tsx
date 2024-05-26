@@ -7,6 +7,7 @@ import SipCalculator from "./pages/SipCalculator";
 import EmiCalculator from "./pages/EmiCalculator";
 import JsonToTsConverter from "./pages/JsonToTsConverter";
 import HomePage from "./pages/HomePage";
+import HRAExemptionCalculator from "./pages/HRAExemptionCalculator";
 
 type SectionItem = {
   name: string;
@@ -40,8 +41,8 @@ export const sideMenuConfig: SideMenuConfig = {
           component: <TextToArray />,
         },
         {
-          name: "Json to Ts",
-          link: "/json-to-ts",
+          name: "Json to Any Language",
+          link: "/json-to-code",
           component: <JsonToTsConverter />,
         },
       ],
@@ -119,6 +120,11 @@ export const sideMenuConfig: SideMenuConfig = {
           name: "Loan EMI",
           link: "/emi-calculator",
           component: <EmiCalculator />,
+        },
+        {
+          name: "HRA Exemption",
+          link: "hra-exemption",
+          component: <HRAExemptionCalculator />,
         },
       ],
       section_svg_icon: (
