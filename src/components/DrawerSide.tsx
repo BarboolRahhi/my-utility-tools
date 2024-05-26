@@ -47,13 +47,15 @@ export default function DrawerSide() {
               </h2>
               <ul>
                 {section.sectionItems.map((item) => (
-                  <li key={item.name}>
+                  <li key={item.name} className="">
                     <NavLink
                       to={item.link}
                       onClick={() => {
                         ref?.current?.click();
                       }}
-                      className={({ isActive }) => (isActive ? "active" : "")}
+                      className={({ isActive }) =>
+                        isActive ? "active !bg-primary dark:!text-white" : ""
+                      }
                     >
                       {item.name}
                     </NavLink>

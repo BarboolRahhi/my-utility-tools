@@ -65,22 +65,22 @@ const HomePage = () => {
       <div className="container mx-auto lg:px-4">
         {/* Header */}
         <header className="text-center mb-6">
-          <h1 className="text-2xl lg:text-4xl font-bold">
+          <h1 className="text-2xl lg:text-4xl font-bold logo">
             Welcome to MyUtilityTools.in
           </h1>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-gray-500">
             Your go-to destination for a wide range of utility tools.
           </p>
         </header>
 
         {/* Features Section */}
         <section>
-          <h2 className="text-3xl font-semibold  mb-6">Features</h2>
+          {/* <h2 className="text-3xl font-semibold  mb-6">Features</h2>  */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.map(({ title, items }) => (
               <div className="card border hover:bg-base-200" key={title}>
                 <div className="card-body">
-                  <h3 className="card-title text-xl">{title}</h3>
+                  <h3 className="card-title text-xl logo">{title}</h3>
                   <ul className="list-disc list-inside mt-2">
                     {items.map(({ name, description }) => (
                       <li key={name}>
@@ -96,7 +96,9 @@ const HomePage = () => {
 
         {/* Footer */}
         <footer className="card mt-6 py-4 text-center border">
-          <p>Made by Rahhi Barbool</p>
+          <p>
+            Made by <span className="logo">Rahhi Barbool</span>
+          </p>
           <div className="flex justify-center mt-2">
             <a
               href="https://www.linkedin.com/in/rahhibarbool"
