@@ -24,15 +24,18 @@ const HomePage = () => {
               <div className="card border hover:bg-base-200" key={title}>
                 <div className="card-body">
                   <h3 className="card-title text-xl logo">{title}</h3>
-                  <ul className="list-disc list-inside space-y-2">
+                  <ul className="list-none list-inside space-y-2">
                     {items.map(({ name, description, link }) => (
-                      <li key={name} className="mt-2 ">
+                      <li
+                        key={name}
+                        className="mt-2 flex flex-col md:list-item"
+                      >
                         <NavLink to={link}>
                           <span className="badge-primary px-1 rounded-md hover:bg-opacity-80">
-                            {name}
+                            {name}:
                           </span>
                         </NavLink>
-                        :{description}
+                        <span> {description}</span>
                       </li>
                     ))}
                   </ul>

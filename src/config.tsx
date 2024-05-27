@@ -153,18 +153,18 @@ export const featuresHomePage = [
     title: "Financial Calculators",
     items: [
       {
-        name: "EMI Calculator",
+        name: "EMI",
         description:
           "Calculate your Equated Monthly Installment (EMI) for loans.",
         link: "/emi-calculator",
       },
       {
-        name: "SIP Calculator",
+        name: "SIP",
         description: "Plan your Systematic Investment Plan (SIP) with ease.",
         link: "/sip-calculator",
       },
       {
-        name: "Lump Sum Calculator",
+        name: "Lump Sum",
         description: "Calculate the future value of a one-time investment.",
         link: "/sip-calculator",
       },
@@ -179,17 +179,17 @@ export const featuresHomePage = [
     title: "Code Converters",
     items: [
       {
-        name: "JSON to Java Converter",
+        name: "JSON to Java",
         description: "Convert your JSON data into Java classes.",
         link: "/json-to-code",
       },
       {
-        name: "JSON to TypeScript Converter",
+        name: "JSON to TypeScript",
         description: "Transform your JSON data into TypeScript objects.",
         link: "/json-to-code",
       },
       {
-        name: "JSON to Kotlin Converter",
+        name: "JSON to Kotlin",
         description: "Generate Kotlin data classes from JSON data.",
         link: "/json-to-code",
       },
