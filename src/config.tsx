@@ -123,7 +123,7 @@ export const sideMenuConfig: SideMenuConfig = {
         },
         {
           name: "HRA Exemption",
-          link: "hra-exemption",
+          link: "/hra-exemption",
           component: <HRAExemptionCalculator />,
         },
       ],
@@ -146,4 +146,77 @@ const routes: RouteObject[] = sideMenuConfig.sideSections
 export const sideBarRoutes: RouteObject[] = [
   { path: "/", element: <HomePage /> },
   ...routes,
+];
+
+export const featuresHomePage = [
+  {
+    title: "Financial Calculators",
+    items: [
+      {
+        name: "EMI Calculator",
+        description:
+          "Calculate your Equated Monthly Installment (EMI) for loans.",
+        link: "/emi-calculator",
+      },
+      {
+        name: "SIP Calculator",
+        description: "Plan your Systematic Investment Plan (SIP) with ease.",
+        link: "/sip-calculator",
+      },
+      {
+        name: "Lump Sum Calculator",
+        description: "Calculate the future value of a one-time investment.",
+        link: "/sip-calculator",
+      },
+      {
+        name: "HRA Exemption",
+        description: "Calculate HRA exemption and taxable amount.",
+        link: "/hra-exemption",
+      },
+    ],
+  },
+  {
+    title: "Code Converters",
+    items: [
+      {
+        name: "JSON to Java Converter",
+        description: "Convert your JSON data into Java classes.",
+        link: "/json-to-code",
+      },
+      {
+        name: "JSON to TypeScript Converter",
+        description: "Transform your JSON data into TypeScript objects.",
+        link: "/json-to-code",
+      },
+      {
+        name: "JSON to Kotlin Converter",
+        description: "Generate Kotlin data classes from JSON data.",
+        link: "/json-to-code",
+      },
+    ],
+  },
+  {
+    title: "Text Utilities",
+    items: [
+      {
+        name: "Add Quote to Text",
+        description: "Easily add quotes around your text.",
+        link: "/add-quote-to-text",
+      },
+      {
+        name: "Text Compare",
+        description: "Compare two pieces of text to find differences.",
+        link: "/text-compare",
+      },
+      {
+        name: "JSON Formatter",
+        description: "Format and beautify your JSON data.",
+        link: "/json-format",
+      },
+    ],
+  },
+  {
+    title: "Comming soon...",
+    items: [],
+  },
 ];

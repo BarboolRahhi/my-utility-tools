@@ -1,63 +1,6 @@
+import { NavLink } from "react-router-dom";
 import MainContainer from "../components/MainContainer";
-
-const features = [
-  {
-    title: "Financial Calculators",
-    items: [
-      {
-        name: "EMI Calculator",
-        description:
-          "Calculate your Equated Monthly Installment (EMI) for loans.",
-      },
-      {
-        name: "SIP Calculator",
-        description: "Plan your Systematic Investment Plan (SIP) with ease.",
-      },
-      {
-        name: "Lump Sum Calculator",
-        description: "Calculate the future value of a one-time investment.",
-      },
-    ],
-  },
-  {
-    title: "Code Converters",
-    items: [
-      {
-        name: "JSON to Java Converter",
-        description: "Convert your JSON data into Java classes.",
-      },
-      {
-        name: "JSON to TypeScript Converter",
-        description: "Transform your JSON data into TypeScript objects.",
-      },
-      {
-        name: "JSON to Kotlin Converter",
-        description: "Generate Kotlin data classes from JSON data.",
-      },
-    ],
-  },
-  {
-    title: "Text Utilities",
-    items: [
-      {
-        name: "Add Quote to Text",
-        description: "Easily add quotes around your text.",
-      },
-      {
-        name: "Text Compare",
-        description: "Compare two pieces of text to find differences.",
-      },
-      {
-        name: "JSON Formatter",
-        description: "Format and beautify your JSON data.",
-      },
-    ],
-  },
-  {
-    title: "Comming soon...",
-    items: [],
-  },
-];
+import { featuresHomePage } from "../config";
 
 const HomePage = () => {
   return (
@@ -77,14 +20,19 @@ const HomePage = () => {
         <section>
           {/* <h2 className="text-3xl font-semibold  mb-6">Features</h2>  */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {features.map(({ title, items }) => (
+            {featuresHomePage.map(({ title, items }) => (
               <div className="card border hover:bg-base-200" key={title}>
                 <div className="card-body">
                   <h3 className="card-title text-xl logo">{title}</h3>
-                  <ul className="list-disc list-inside mt-2">
-                    {items.map(({ name, description }) => (
-                      <li key={name}>
-                        <strong>{name}:</strong> {description}
+                  <ul className="list-disc list-inside space-y-2">
+                    {items.map(({ name, description, link }) => (
+                      <li key={name} className="mt-2 ">
+                        <NavLink to={link}>
+                          <span className="badge-primary px-1 rounded-md hover:bg-opacity-80">
+                            {name}
+                          </span>
+                        </NavLink>
+                        :{description}
                       </li>
                     ))}
                   </ul>
