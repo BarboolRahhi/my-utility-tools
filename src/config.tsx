@@ -220,3 +220,9 @@ export const featuresHomePage = [
     items: [],
   },
 ];
+
+export const searchDataList = sideMenuConfig.sideSections
+  .flatMap((section) => section.sectionItems)
+  .map((item) => {
+    return { path: item.link, name: item.name };
+  });

@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
-import { sideMenuConfig } from "../config";
-import SearchSvg from "./svg-icon/SearchSvg";
-import Input from "./Input";
+import { NavLink, useNavigate } from "react-router-dom";
+import { searchDataList, sideMenuConfig } from "../config";
 import { useRef } from "react";
+import Search from "./Search";
 
 export default function DrawerSide() {
   const ref = useRef<any>(null);
+  const navigate = useNavigate();
   return (
     <div className="drawer-side z-40">
       <label
@@ -30,11 +30,22 @@ export default function DrawerSide() {
         </div>
 
         <div className="bg-base-100 sticky top-0 z-20 lg:hidden bg-opacity-90 px-4 py-2 backdrop-blur flex">
-          <Input
-            type="text"
-            className="grow"
+          <Search
+            className="w-full mt-4"
             placeholder="Search..."
-            icon={<SearchSvg />}
+            resetOnSelect
+            data={searchDataList}
+            valueField="name"
+            onItemClick={(item) => {
+              navigate(item.path);
+              ref?.current?.click();
+            }}
+            itemKey={(item) => item.path}
+            itemFn={(item) => <div>{item.name}</div>}
+            filterFn={(item, query) =>
+              item.name.toLowerCase().includes(query.toLowerCase()) ||
+              item.path.toLowerCase().includes(query.toLowerCase())
+            }
           />
         </div>
 

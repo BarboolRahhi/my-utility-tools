@@ -32,14 +32,16 @@ function TextCompare() {
       </div>
 
       {(text1.trim() || text2.trim()) && (
-        <div className="mt-4 rounded-lg border p-2">
-          <ReactDiffViewer
-            useDarkTheme={dark}
-            oldValue={text1}
-            newValue={text2}
-            showDiffOnly={false}
-            splitView={lg || xl ? true : false}
-          />
+        <div className="mt-4 rounded-lg border p-2  overflow-x-auto">
+          <div className="min-w-[600px]">
+            <ReactDiffViewer
+              useDarkTheme={dark}
+              oldValue={text1}
+              newValue={text2}
+              showDiffOnly={false}
+              splitView={lg || xl ? true : false}
+            />
+          </div>
         </div>
       )}
     </MainContainer>
