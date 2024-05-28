@@ -43,9 +43,7 @@ function Search<T>({
     [query]
   );
 
-  function handleOnFocus(
-    event: React.FocusEvent<HTMLInputElement, Element>
-  ): void {
+  function handleOnFocus(_: React.FocusEvent<HTMLInputElement, Element>): void {
     setDisplaySuggestions(true);
   }
 
