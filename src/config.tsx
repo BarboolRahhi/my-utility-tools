@@ -8,6 +8,7 @@ import EmiCalculator from "./pages/EmiCalculator";
 import JsonToTsConverter from "./pages/JsonToTsConverter";
 import HomePage from "./pages/HomePage";
 import HRAExemptionCalculator from "./pages/HRAExemptionCalculator";
+import ObjectToJsonComponent from "./pages/ObjectToJsonComponent";
 
 type SectionItem = {
   name: string;
@@ -44,6 +45,11 @@ export const sideMenuConfig: SideMenuConfig = {
           name: "Json to Any Language",
           link: "/json-to-code",
           component: <JsonToTsConverter />,
+        },
+        {
+          name: "JavaScript to Json",
+          link: "/javascript-to-json",
+          component: <ObjectToJsonComponent />,
         },
       ],
       section_svg_icon: (
