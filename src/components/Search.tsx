@@ -98,6 +98,7 @@ function Search<T>({
         !inputRef.current.contains(event.target as Node) &&
         !suggestionsRef.current.contains(event.target as Node)
       ) {
+        setQuery("");
         setDisplaySuggestions(false);
       }
     };
