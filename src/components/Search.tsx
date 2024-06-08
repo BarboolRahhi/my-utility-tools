@@ -141,7 +141,7 @@ function Search<T>({
         <ul
           ref={suggestionsRef}
           id="links"
-          className="absolute w-56 top-16 bg-white p-2 shadow-lg rounded-lg flex-1"
+          className="absolute w-56 top-16 bg-base-100 p-2 shadow-lg rounded-lg flex-1"
         >
           {filterData.map((option, index) => (
             <li
