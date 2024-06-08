@@ -50,6 +50,7 @@ const CodeViewer = ({
         className="w-full rounded-lg"
         showLineNumbers
         wrapLines
+        wrapLongLines
         language={language}
         style={isDark ? atomOneDark : atomOneLight}
       >

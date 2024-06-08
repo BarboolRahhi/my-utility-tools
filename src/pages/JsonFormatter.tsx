@@ -1,37 +1,33 @@
-import { ChangeEvent } from "react";
-import { useForm } from "react-hook-form";
+import { ChangeEvent, useState } from "react";
 import { formatJSON } from "../utils/formatJson";
 import MainContainer from "../components/MainContainer";
 import TextArea from "../components/TextArea";
+import CodeViewer from "../components/CodeViewer";
 
 export default function JsonFormatter() {
-  const { register, getValues, setValue } = useForm();
-  function handleOnChange(_: ChangeEvent<HTMLTextAreaElement>): void {
-    const { inputJson } = getValues();
-    const text = formatJSON(inputJson, 2);
-    setValue("outputJson", text);
+  const [outputJson, setOutputJson] = useState("");
+  function handleOnChange(e: ChangeEvent<HTMLTextAreaElement>): void {
+    const text = formatJSON(e.target.value, 2);
+    setOutputJson(text);
   }
 
   return (
     <MainContainer className="lg:flex-row gap-6">
       <TextArea
-        {...register("inputJson", {
-          onChange: handleOnChange,
-        })}
+        onChange={handleOnChange}
         label="Input Json"
         rows={15}
         placeholder="Paste your text here"
-        className="flex-1"
+        className="w-full"
       />
 
-      <TextArea
-        label="Formatted Json"
-        {...register("outputJson")}
-        readOnly
-        rows={15}
-        placeholder="Get Json output from here"
-        className="flex-1"
-      />
+      {outputJson && (
+        <CodeViewer
+          code={outputJson}
+          language="json"
+          className="w-full min-w-80"
+        />
+      )}
     </MainContainer>
   );
 }
