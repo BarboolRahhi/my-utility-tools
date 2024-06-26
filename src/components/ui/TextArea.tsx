@@ -1,5 +1,5 @@
 import React, { TextareaHTMLAttributes, forwardRef } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 import { VariantProps, cva } from "class-variance-authority";
 
 type TextAreaProps = {
@@ -28,7 +28,7 @@ const textareaVariants = cva(["textarea textarea-bordered"], {
   },
 });
 
-const TextArea = forwardRef(
+export const TextArea = forwardRef(
   (
     { label, className, size, error, variant, ...props }: TextAreaProps,
     ref: React.ForwardedRef<any>
@@ -57,5 +57,3 @@ const TextArea = forwardRef(
     );
   }
 );
-
-export default TextArea;

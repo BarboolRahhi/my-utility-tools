@@ -1,7 +1,8 @@
-import React from "react";
-import { cn } from "../../utils/cn";
+import React from 'react';
 
-const RupeeSvg = (props: React.SVGProps<SVGSVGElement>) => {
+import { cn } from '../../utils/cn';
+
+export const RupeeSvg = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       fill="currentColor"
@@ -13,5 +14,3 @@ const RupeeSvg = (props: React.SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default RupeeSvg;

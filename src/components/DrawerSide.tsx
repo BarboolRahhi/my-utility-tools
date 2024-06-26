@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { searchDataList, sideMenuConfig } from "../config";
 import { useRef } from "react";
-import Search from "./Search";
+import { Search } from "./ui/Search";
 
 export default function DrawerSide() {
   const ref = useRef<any>(null);

@@ -1,4 +1,4 @@
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 type ProgressChart = {
   progressValue: number;
@@ -7,7 +7,7 @@ type ProgressChart = {
   className?: string;
 };
 
-const ProgressChart = ({
+export const ProgressChart = ({
   progressValue,
   label,
   bottomLabel,
@@ -36,5 +36,3 @@ const ProgressChart = ({
     </div>
   );
 };
-
-export default ProgressChart;

@@ -1,14 +1,13 @@
-import CopyToClipboard from "./CopyToClipboard";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import {
   atomOneDark,
   atomOneLight,
 } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { cn } from "../utils/cn";
-import Button from "./Button";
-import { downloadTextFile } from "../utils/downloadTextFile";
-import { useDarkMode } from "../hooks/useDarkMode";
-import DownloadSvg from "./svg-icon/DownloadSvg";
+import { cn } from "../../utils/cn";
+import { downloadTextFile } from "../../utils/downloadTextFile";
+import { useDarkMode } from "../../hooks/useDarkMode";
+import { DownloadSvg } from "@component/svg-icon";
+import { CopyToClipboard, Button } from "@component/ui";
 
 type CodeViewerProps = {
   code: string;
@@ -16,8 +15,7 @@ type CodeViewerProps = {
   className?: string;
   language?: string;
 };
-
-const CodeViewer = ({
+export const CodeViewer = ({
   code,
   className,
   fileName = "default",
@@ -59,5 +57,3 @@ const CodeViewer = ({
     </div>
   );
 };
-
-export default CodeViewer;

@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import Button from "../components/Button";
-import Input from "../components/Input";
 import MainContainer from "../components/MainContainer";
-import Radio from "../components/Radio";
-import RadioGroup from "../components/RadioGroup";
-import { KeyValueList } from "../components/KeyValueList";
+import { RadioGroup, Radio, Input, KeyValueList, Button } from "@component/ui";
 
 type FormInputs = {
   actualHRAReceived: number;

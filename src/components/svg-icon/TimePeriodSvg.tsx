@@ -1,7 +1,8 @@
-import React from "react";
-import { cn } from "../../utils/cn";
+import React from 'react';
 
-const TimePeriodSvg = (props: React.SVGProps<SVGSVGElement>) => {
+import { cn } from '../../utils/cn';
+
+export const TimePeriodSvg = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       fill="none"
@@ -19,5 +20,3 @@ const TimePeriodSvg = (props: React.SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default TimePeriodSvg;

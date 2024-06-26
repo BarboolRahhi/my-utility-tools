@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Language, convertJSONToType } from "../utils/convertJsonToType";
 import MainContainer from "../components/MainContainer";
-import Input from "../components/Input";
-import Radio from "../components/Radio";
 import { SubmitHandler, useForm } from "react-hook-form";
-import RadioGroup from "../components/RadioGroup";
-import TextArea from "../components/TextArea";
-import Button from "../components/Button";
-import CodeViewer from "../components/CodeViewer";
 import { formatJSON } from "../utils/formatJson";
+import {
+  TextArea,
+  RadioGroup,
+  Radio,
+  Input,
+  Button,
+  CodeViewer,
+} from "@component/ui";
 
 type Inputs = {
   jsonInput: string;

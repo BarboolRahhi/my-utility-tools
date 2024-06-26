@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 type CalculatorDetailsProps = {
   data: { key: string; value: string | number }[];

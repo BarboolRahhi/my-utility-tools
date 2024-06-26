@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 type RadioGroupProps = {
   label?: string;
@@ -9,7 +9,7 @@ type RadioGroupProps = {
   direction?: "vertical" | "horizontal";
 };
 
-const RadioGroup = ({
+export const RadioGroup = ({
   children,
   label,
   className,
@@ -29,5 +29,3 @@ const RadioGroup = ({
     </div>
   );
 };
-
-export default RadioGroup;

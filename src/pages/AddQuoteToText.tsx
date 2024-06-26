@@ -1,10 +1,15 @@
-import { ChangeEvent } from "react";
-import { useForm } from "react-hook-form";
-import { quoteText } from "../utils/quoteText";
-import MainContainer from "../components/MainContainer";
-import TextArea from "../components/TextArea";
-import Input from "../components/Input";
-import Checkbox from "../components/Checkbox";
+import { ChangeEvent } from 'react';
+
+import { useForm } from 'react-hook-form';
+
+import {
+  Checkbox,
+  Input,
+  TextArea,
+} from '@component/ui';
+
+import MainContainer from '../components/MainContainer';
+import { quoteText } from '../utils/quoteText';
 
 export default function AddQuoteToText() {
   const { register, getValues, setValue } = useForm();

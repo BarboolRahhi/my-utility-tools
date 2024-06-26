@@ -1,9 +1,9 @@
 import { useState } from "react";
 import MainContainer from "../components/MainContainer";
-import TextArea from "../components/TextArea";
 import ReactDiffViewer from "react-diff-viewer-continued";
 import { useDarkMode } from "../hooks/useDarkMode";
 import useScreenWidth from "../hooks/useScreenWidth";
+import { TextArea } from "@component/ui";
 
 function TextCompare() {
   const [text1, setText1] = useState("");

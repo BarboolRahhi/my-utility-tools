@@ -1,16 +1,30 @@
-import { SubmitHandler, useForm } from "react-hook-form";
-import MainContainer from "../components/MainContainer";
-import { useEffect, useState } from "react";
-import { calculateMonthlySIPValue } from "../utils/calculateMonthlySIPValue";
-import { calculateLumpsumValue } from "../utils/calculateLumpsumValue";
-import Input from "../components/Input";
-import TimePeriodSvg from "../components/svg-icon/TimePeriodSvg";
-import PercentageSvg from "../components/svg-icon/PercentageSvg";
-import RupeeSvg from "../components/svg-icon/RupeeSvg";
-import Radio from "../components/Radio";
-import ProgressChart from "../components/ProgressChart";
-import { KeyValueList } from "../components/KeyValueList";
-import Button from "../components/Button";
+import {
+  useEffect,
+  useState,
+} from 'react';
+
+import {
+  SubmitHandler,
+  useForm,
+} from 'react-hook-form';
+
+import {
+  PercentageSvg,
+  RupeeSvg,
+  TimePeriodSvg,
+} from '@component/svg-icon';
+import {
+  Button,
+  Input,
+  KeyValueList,
+  ProgressChart,
+  Radio,
+} from '@component/ui';
+
+import MainContainer from '../components/MainContainer';
+import { calculateLumpsumValue } from '../utils/calculateLumpsumValue';
+import { calculateMonthlySIPValue } from '../utils/calculateMonthlySIPValue';
+
 type Inputs = {
   sipType: string;
   amount: number;

@@ -1,8 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { formatJSON } from "../utils/formatJson";
 import MainContainer from "../components/MainContainer";
-import TextArea from "../components/TextArea";
-import CodeViewer from "../components/CodeViewer";
+import { TextArea, CodeViewer } from "@component/ui";
 
 export default function JsonFormatter() {
   const [outputJson, setOutputJson] = useState("");

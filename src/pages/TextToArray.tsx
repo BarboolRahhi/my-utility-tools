@@ -2,11 +2,7 @@ import { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
 import { convertTextToArray } from "../utils/convertTextToArray";
 import MainContainer from "../components/MainContainer";
-import RadioGroup from "../components/RadioGroup";
-import Radio from "../components/Radio";
-import TextArea from "../components/TextArea";
-import Button from "../components/Button";
-import CodeViewer from "../components/CodeViewer";
+import { TextArea, RadioGroup, Radio, Button, CodeViewer } from "@component/ui";
 
 export default function TextToArray() {
   const [tabData, setTabData] = useState<

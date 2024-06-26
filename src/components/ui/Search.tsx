@@ -1,5 +1,5 @@
 import React, { Key, useEffect, useMemo, useRef, useState } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 type SearchProps<T> = {
   id?: string;
@@ -18,7 +18,7 @@ type SearchProps<T> = {
   className?: string;
 };
 
-function Search<T>({
+export function Search<T>({
   id,
   placeholder,
   value,
@@ -185,5 +185,3 @@ function Search<T>({
     </div>
   );
 }
-
-export default Search;

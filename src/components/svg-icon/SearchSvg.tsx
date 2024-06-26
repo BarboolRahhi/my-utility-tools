@@ -1,7 +1,8 @@
-import React from "react";
-import { cn } from "../../utils/cn";
+import React from 'react';
 
-const SearchSvg = (props: React.SVGProps<SVGSVGElement>) => {
+import { cn } from '../../utils/cn';
+
+export const SearchSvg = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,5 +19,3 @@ const SearchSvg = (props: React.SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default SearchSvg;

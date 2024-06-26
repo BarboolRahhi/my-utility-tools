@@ -1,6 +1,6 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { ButtonHTMLAttributes, PropsWithChildren } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 type ButtonProps = { className?: string } & PropsWithChildren &
   ButtonHTMLAttributes<HTMLButtonElement> &
@@ -29,7 +29,7 @@ const buttonVariants = cva(["btn"], {
   },
 });
 
-const Button = ({
+export const Button = ({
   className,
   variant,
   size,
@@ -47,5 +47,3 @@ const Button = ({
     </button>
   );
 };
-
-export default Button;

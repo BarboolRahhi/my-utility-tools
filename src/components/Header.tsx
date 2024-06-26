@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { searchDataList } from "../config";
 import CurrentTimeAndDate from "./CurrentTimeAndDate";
-import Search from "./Search";
+import { Search } from "./ui/Search";
 
 export default function Header() {
   const navigate = useNavigate();

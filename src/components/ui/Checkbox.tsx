@@ -1,6 +1,6 @@
 import { VariantProps, cva } from "class-variance-authority";
 import React, { InputHTMLAttributes, forwardRef } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 type CheckboxProps = {
   label?: string;
@@ -31,7 +31,7 @@ const inputVariants = cva(["checkbox"], {
   },
 });
 
-const Checkbox = forwardRef(
+export const Checkbox = forwardRef(
   (
     {
       variant,
@@ -64,5 +64,3 @@ const Checkbox = forwardRef(
     );
   }
 );
-
-export default Checkbox;

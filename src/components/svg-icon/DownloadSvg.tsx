@@ -1,6 +1,6 @@
-import { cn } from "../../utils/cn";
+import { cn } from '../../utils/cn';
 
-const DownloadSvg = (props: React.SVGProps<SVGSVGElement>) => {
+export const DownloadSvg = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       className={cn("w-6 h-6", props.className)}
@@ -22,5 +22,3 @@ const DownloadSvg = (props: React.SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default DownloadSvg;

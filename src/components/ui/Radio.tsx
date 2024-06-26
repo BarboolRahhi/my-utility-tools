@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, forwardRef } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 import { VariantProps, cva } from "class-variance-authority";
 
 type RadioTypes = {
@@ -31,7 +31,7 @@ const radioVariants = cva(["radio"], {
   },
 });
 
-const Radio = forwardRef(
+export const Radio = forwardRef(
   (
     { label, className, fullWidth, size, variant, ...props }: RadioTypes,
     ref: React.ForwardedRef<any>
@@ -56,5 +56,3 @@ const Radio = forwardRef(
     );
   }
 );
-
-export default Radio;

@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { CopyToClipboard as Clipboard } from "react-copy-to-clipboard";
-import Button from "./Button";
-import TickSvg from "./svg-icon/TickSvg";
-import useTimeout from "../hooks/useTimeout";
-import FileCopySvg from "./svg-icon/FileCopySvg";
+import { useState } from 'react';
+import { CopyToClipboard as Clipboard } from 'react-copy-to-clipboard';
+import { FileCopySvg } from '../svg-icon/FileCopySvg';
+import useTimeout from '../../hooks/useTimeout';
+import { Button } from './Button';
+import { TickSvg } from '../svg-icon/TickSvg';
 
 type CopyToClipboardProps = {
   text: string;
   onCopy?: (text: string, result: boolean) => void;
 };
 
-const CopyToClipboard = ({ text, onCopy }: CopyToClipboardProps) => {
+export const CopyToClipboard = ({ text, onCopy }: CopyToClipboardProps) => {
   const [copy, setCopy] = useState(false);
 
   useTimeout(() => setCopy(false), copy ? 2000 : null);
@@ -31,5 +31,3 @@ const CopyToClipboard = ({ text, onCopy }: CopyToClipboardProps) => {
     </Clipboard>
   );
 };
-
-export default CopyToClipboard;

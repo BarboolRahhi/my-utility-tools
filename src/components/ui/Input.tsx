@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, forwardRef } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 import { VariantProps, cva } from "class-variance-authority";
 
 type InputProps = {
@@ -29,7 +29,7 @@ const inputVariants = cva(["input input-bordered flex items-center gap-2"], {
   },
 });
 
-const Input = forwardRef(
+export const Input = forwardRef(
   (
     { label, icon, className, variant, size, error, ...props }: InputProps,
     ref: React.ForwardedRef<any>
@@ -59,5 +59,3 @@ const Input = forwardRef(
     );
   }
 );
-
-export default Input;

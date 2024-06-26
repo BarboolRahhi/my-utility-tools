@@ -1,7 +1,8 @@
-import React from "react";
-import { cn } from "../../utils/cn";
+import React from 'react';
 
-const PercentageSvg = (props: React.SVGProps<SVGSVGElement>) => {
+import { cn } from '../../utils/cn';
+
+export const PercentageSvg = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       viewBox="0 0 1024 1024"
@@ -13,5 +14,3 @@ const PercentageSvg = (props: React.SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
-
-export default PercentageSvg;

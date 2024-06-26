@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { objectToJson } from "../utils/objectToJson";
-import Button from "../components/Button";
 import MainContainer from "../components/MainContainer";
-import TextArea from "../components/TextArea";
-import CodeViewer from "../components/CodeViewer";
+import { TextArea, Button, CodeViewer } from "@component/ui";
 
 const ObjectToJsonComponent: React.FC = () => {
   const { register, handleSubmit, reset } = useForm();
